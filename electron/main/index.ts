@@ -40,13 +40,14 @@ if (!app.requestSingleInstanceLock()) {
 let win: BrowserWindow | null = null
 const preload = path.join(__dirname, '../preload/index.mjs')
 const indexHtml = path.join(RENDERER_DIST, 'index.html')
+console.log('path----', path.join(process.env.VITE_PUBLIC, 'logo.png'))
 async function createWindow() {
 	win = new BrowserWindow({
 		title: 'Main window',
 		// backgroundColor: "#00000000",
 		// transparent: true, // 开启透明背景
 		// frame: false, // 移除窗口边框
-		icon: path.join(process.env.VITE_PUBLIC, 'favicon.ico'),
+		icon: path.join(process.env.VITE_PUBLIC, 'logo.png'),
 		webPreferences: {
 			contextIsolation: true,
 			preload
